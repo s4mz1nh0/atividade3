@@ -19,11 +19,10 @@
 
                         <td class="right-align">
                             <a class="waves-effect waves-light #f48fb1 red lighten-3
-                            btn-small">Download Google Drive</a>
-                        </td>
-                        <td class="right-align">
+                            btn-small">Google Drive</a>
                             <a class="waves-effect waves-light #f48fb1 red lighten-3
-                            btn-small">Download MEGA</a>
+                            btn-small">MEGA</a>
+
                         </td>
 
 
