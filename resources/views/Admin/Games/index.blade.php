@@ -7,6 +7,7 @@
             <thead>
                 <tr>
                     <th>Game</th>
+                    <th>Desenvolvedora</th>
                     <th class="right-align">Opções</th>
                 </tr>
             </thead>
@@ -14,7 +15,14 @@
                 @forelse ($games as $game)
                     <tr>
                         <td>{{$game->nome}}</td>
-                        <td class="right-align">Excluir - Remover</td>
+                        <td>{{$game->desenvolvedora}}</td>
+
+                        <td class="right-align">
+                            <a class="waves-effect waves-light #f48fb1 red lighten-3
+                            btn-small">Download</a>
+                        </td>
+
+
                     </tr>
                 @empty
                     <tr>
