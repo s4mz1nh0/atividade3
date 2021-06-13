@@ -8,7 +8,7 @@
                 <tr>
                     <th>Game</th>
                     <th>Desenvolvedora</th>
-                    <th class="right-align">Opções</th>
+                    <th class="right-align">Opções de download</th>
                 </tr>
             </thead>
             <tbody>
