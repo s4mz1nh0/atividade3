@@ -8,7 +8,7 @@
                 <tr>
                     <th>Game</th>
                     <th>Desenvolvedora</th>
-                    <th class="right-align">Opções de download</th>
+                    <th class="right-align">Opções de download // Excluir Game</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,8 +21,7 @@
                             <a class="waves-effect waves-light #f48fb1 red lighten-3
                             btn-small">Google Drive</a>
                             <a class="waves-effect waves-light #f48fb1 red lighten-3
-                            btn-small">MEGA</a>
-
+                            btn-small">Excluir</a>
                         </td>
 
 
@@ -34,6 +33,13 @@
                 @endforelse
             </tbody>
         </table>
+
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large waves-effect waves-light" href="{{route('Admin.Games.form')}}">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+
     </section>
 
 @endsection

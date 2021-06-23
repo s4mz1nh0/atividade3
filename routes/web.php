@@ -14,9 +14,16 @@ use App\Http\Controllers\Admin\GamesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::redirect('/', '/Admin/Games');
 
-Route::get('/', [GamesController::class, 'games']);
+Route::prefix('Admin')->name('Admin.')->group(function(){
+
+    Route::get('/Games', [GamesController::class, 'games'])->name('Games.listar');
+    Route::get('/Games/adicionar', [GamesController::class, 'formAdicionar'])->name('Games.form');
+
+});
 
 Route::get('/sobre', function () {
     return '<h1>Sobre<h1>';
 });
+

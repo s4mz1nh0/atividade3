@@ -17,6 +17,14 @@ class GamesController extends Controller
     $sobre = 'Esse site é dedicado a manter em seu acervo os games mais marcantes já lançados';
 
 
-    return view('Admin.Games.index', compact('subtitulo', 'games','sobre'));//
+    return view('Admin.Games.index', compact('subtitulo', 'games'));//
+    return view('Admin.Games.index', compact('subtitulo', 'sobre'));//
+
 }
+
+    public function formAdicionar()
+    {
+        return view('Admin.Games.form');
+    }
+
 }
