@@ -23,7 +23,7 @@
             <a href="/" class="brand-logo">DownGames</a>
             <ul class="right">
                 <li>
-                    <a href="#">Downloads</a>
+                    <a href="#">Pedidos</a>
                 </li>
                 <li>
                     <a href="#">Sobre</a>

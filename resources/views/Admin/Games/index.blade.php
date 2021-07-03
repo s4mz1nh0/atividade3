@@ -6,11 +6,11 @@
         <table class="highlight">
             <thead>
                 <tr>
-                    <th>Game</th>
-                    <th>Desenvolvedora</th>
-                    <th>Link</th>
+                    <th>Games</th>
+                    <th class="center-align">Desenvolvedora</th>
+                    <th class="center-align"> Links para download</th>
 
-                    <th class="right-align">✎  Opções de alteração  ✎</th>
+                    <th class="right-align">✎Opções✎</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,17 +21,31 @@
                         <td>{{$game->link}}</td>
 
                         <td class="right-align">
-                            <a class="waves-effect waves-light #f48fb1 red lighten-3
-                            btn-small">Editar </a>
-                            <a class="waves-effect waves-light #f48fb1 red lighten-3
-                            btn-small">Excluir</a>
+
+                            <a href="{{route('Admin.Games.formEditar', $game->id)}}">
+                            <span>
+                                <i class="material-icons pink-text text-lighten-3">edit</i>
+                            </span>
+                        </a>
+
+                            <form action="{{route('Admin.Games.deletar', $game->id)}}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+
+                                <button style="border:0;background:transparent;" type="submit">
+                                    <span style="cursor: pointer">
+                                        <i class="material-icons purple-text text-darken-4">delete_forever</i>
+                                    </span>
+                                </button>
+                            </form>
+
                         </td>
 
 
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3">Não existem Games para download.</td>
+                        <td colspan="2">Não existem Games para download.</td>
                     </tr>
                 @endforelse
             </tbody>
@@ -46,3 +60,4 @@
     </section>
 
 @endsection
+

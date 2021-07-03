@@ -42,4 +42,29 @@ class GamesController extends Controller
         return redirect()->route('Admin.Games.listar');
 
     }
+
+    public function deletar($id, Request $request)
+    {
+        Game::destroy($id);
+        $request->session()->flash('sucesso', "Dados excluídos com sucesso!");
+        return redirect()->route('Admin.Games.listar');
+    }
+    public function formEditar($id)
+    {
+        $game = Game::find($id);
+        $action = route('Admin.Games.editar', $game->id);
+        return view('Admin.Games.form', compact('game', 'action'));
+    }
+
+    public function editar(GameRequest $request, $id)
+    {
+        $game = Game::find($id);
+        $game->nome = $request->nome;
+        $game->desenvolvedora = $request->desenvolvedora;
+        $game->link = $request->link;
+        $game->save();
+
+        $request->session()->flash('sucesso', "Dados alterados com sucesso!");
+        return redirect()->route("Admin.Games.listar");
+    }
 }

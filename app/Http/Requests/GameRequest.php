@@ -24,9 +24,9 @@ class GameRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'bail|required|min:2|max:100',
-            'desenvolvedora' => 'bail|required|min:4|max:50',
-            'link' => 'bail|required|min:4|max:50'
+            'nome' => 'bail|required|min:2|max:1000',
+            'desenvolvedora' => 'bail|required|min:4|max:1000',
+            'link' => 'bail|required|min:4|max:1000000'
         ];
     }
 }
