@@ -20,6 +20,8 @@ Route::prefix('Admin')->name('Admin.')->group(function(){
 
     Route::get('/Games', [GamesController::class, 'games'])->name('Games.listar');
     Route::get('/Games/adicionar', [GamesController::class, 'formAdicionar'])->name('Games.form');
+    Route::post('/Games/adicionar', [GamesController::class, 'adicionar'])->name('Games.adicionar');
+
 
 });
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\GameRequest;
 use App\Models\Game;
 
 class GamesController extends Controller
@@ -27,4 +28,18 @@ class GamesController extends Controller
         return view('Admin.Games.form');
     }
 
+    public function adicionar(GameRequest $request)
+    {
+
+        $request->validate([
+            'nome' => 'bail|required|min:2|max:100'
+        ]);
+
+        Game::create($request->all());
+
+       $request->session()->flash('sucesso', "Dados inseridos com sucesso!");
+
+        return redirect()->route('Admin.Games.listar');
+
+    }
 }

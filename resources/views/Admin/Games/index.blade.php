@@ -8,7 +8,9 @@
                 <tr>
                     <th>Game</th>
                     <th>Desenvolvedora</th>
-                    <th class="right-align">Opções de download // Excluir Game</th>
+                    <th>Link</th>
+
+                    <th class="right-align">✎  Opções de alteração  ✎</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,10 +18,11 @@
                     <tr>
                         <td>{{$game->nome}}</td>
                         <td>{{$game->desenvolvedora}}</td>
+                        <td>{{$game->link}}</td>
 
                         <td class="right-align">
                             <a class="waves-effect waves-light #f48fb1 red lighten-3
-                            btn-small">Google Drive</a>
+                            btn-small">Editar</a>
                             <a class="waves-effect waves-light #f48fb1 red lighten-3
                             btn-small">Excluir</a>
                         </td>
@@ -28,7 +31,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="2">Não existem Games para download.</td>
+                        <td colspan="3">Não existem Games para download.</td>
                     </tr>
                 @endforelse
             </tbody>

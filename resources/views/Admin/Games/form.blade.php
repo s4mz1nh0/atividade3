@@ -4,11 +4,32 @@
 @section('conteudo-principal')
 
     <section class="section">
-        <form action="" method="POST">
+        <form action="{{route('Admin.Games.adicionar')}}" method="POST">
+
+            @csrf
 
             <div class="input-field">
                 <input type="text" name="nome" id="nome" />
                 <label for="nome">Nome</label>
+                @error('nome')
+                    <span class="red-text text-acent-3"><small>{{$message}}</small></span>
+                @enderror
+            </div>
+
+            <div class="input-field">
+                <input type="text" name="desenvolvedora" id="desenvolvedora" />
+                <label for="desenvolvedora">Desenvolvedora</label>
+                @error('desenvolvedora')
+                    <span class="red-text text-acent-3"><small>{{$message}}</small></span>
+                @enderror
+            </div>
+
+            <div class="input-field">
+                <input type="text" name="link" id="link" />
+                <label for="link">Link</label>
+                @error('link')
+                    <span class="red-text text-acent-3"><small>{{$message}}</small></span>
+                @enderror
             </div>
 
             <div class="right-align">

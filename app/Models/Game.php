@@ -11,8 +11,10 @@ class Game extends Model
 
     protected $table = 'games';
 
-    protected $primarykey = 'gameId';
+    protected $fillable = ['nome', 'desenvolvedora', 'link'];
 
-    public $timestamps = false;
+    //protected $primarykey = 'gameId';
+
+    //public $timestamps = false;
 
 }
