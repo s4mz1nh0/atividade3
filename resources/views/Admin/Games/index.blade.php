@@ -22,7 +22,7 @@
 
                         <td class="right-align">
                             <a class="waves-effect waves-light #f48fb1 red lighten-3
-                            btn-small">Editar</a>
+                            btn-small">Editar </a>
                             <a class="waves-effect waves-light #f48fb1 red lighten-3
                             btn-small">Excluir</a>
                         </td>
