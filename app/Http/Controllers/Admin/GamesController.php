@@ -25,15 +25,16 @@ class GamesController extends Controller
 
     public function formAdicionar()
     {
-        return view('Admin.Games.form');
+        $action = route('Admin.Games.adicionar');
+        return view('Admin.Games.form', compact('action'));
     }
 
     public function adicionar(GameRequest $request)
     {
 
-        $request->validate([
-            'nome' => 'bail|required|min:2|max:100'
-        ]);
+        //$request->validate([
+        //    'nome' => 'bail|required|min:2|max:100'
+     //   ]);
 
         Game::create($request->all());
 
