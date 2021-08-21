@@ -4,60 +4,85 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\GameRequest;
 use App\Models\Game;
+use App\Http\Requests\GameRequest;
 
 class GamesController extends Controller
 {
-    public function games(){
-
-    $subtitulo = 'Lista de games';
-
-    $games = Game::all();
-
-    $sobre = 'Esse site é dedicado a manter em seu acervo os games mais marcantes já lançados';
-
-
-    return view('Admin.Games.index', compact('subtitulo', 'games'));//
-    return view('Admin.Games.index', compact('subtitulo', 'sobre'));//
-
-}
-
-    public function formAdicionar()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $action = route('Admin.Games.adicionar');
+        $subtitulo = 'Lista de games';
+        $games = Game::all();
+        $sobre = 'Esse site é dedicado a manter em seu acervo os games mais marcantes já lançados';
+
+        return view('Admin.Games.index', compact('subtitulo', 'games'));//
+        return view('Admin.Games.index', compact('subtitulo', 'sobre'));//
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $action = route('Admin.Games.store');
         return view('Admin.Games.form', compact('action'));
     }
 
-    public function adicionar(GameRequest $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(GameRequest $request)
     {
-
-        //$request->validate([
-        //    'nome' => 'bail|required|min:2|max:100'
-     //   ]);
-
         Game::create($request->all());
 
        $request->session()->flash('sucesso', "Dados inseridos com sucesso!");
 
-        return redirect()->route('Admin.Games.listar');
-
+        return redirect()->route('Admin.Games.index');
     }
 
-    public function deletar($id, Request $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+     /* public function show($id)
     {
-        Game::destroy($id);
-        $request->session()->flash('sucesso', "Dados excluídos com sucesso!");
-        return redirect()->route('Admin.Games.listar');
-    }
-    public function formEditar($id)
+        //
+    }*/
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         $game = Game::find($id);
-        $action = route('Admin.Games.editar', $game->id);
+        $action = route('Admin.Games.update', $game->id);
         return view('Admin.Games.form', compact('game', 'action'));
     }
 
-    public function editar(GameRequest $request, $id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(GameRequest $request, $id)
     {
         $game = Game::find($id);
         $game->nome = $request->nome;
@@ -66,6 +91,19 @@ class GamesController extends Controller
         $game->save();
 
         $request->session()->flash('sucesso', "Dados alterados com sucesso!");
-        return redirect()->route("Admin.Games.listar");
+        return redirect()->route("Admin.Games.index");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request, $id)
+    {
+        Game::destroy($id);
+        $request->session()->flash('sucesso', "Dados excluídos com sucesso!");
+        return redirect()->route('Admin.Games.index');
     }
 }

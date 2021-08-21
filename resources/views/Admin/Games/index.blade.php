@@ -22,13 +22,13 @@
 
                         <td class="right-align">
 
-                            <a href="{{route('Admin.Games.formEditar', $game->id)}}">
+                            <a href="{{route('Admin.Games.edit', $game->id)}}">
                             <span>
                                 <i class="material-icons pink-text text-lighten-3">edit</i>
                             </span>
                         </a>
 
-                            <form action="{{route('Admin.Games.deletar', $game->id)}}" method="POST" style="display: inline;">
+                            <form action="{{route('Admin.Games.destroy', $game->id)}}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
 
@@ -52,7 +52,7 @@
         </table>
 
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large waves-effect waves-light" href="{{route('Admin.Games.form')}}">
+            <a class="btn-floating btn-large waves-effect waves-light" href="{{route('Admin.Games.create')}}">
                 <i class="large material-icons">add</i>
             </a>
         </div>

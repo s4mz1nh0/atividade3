@@ -26,7 +26,7 @@
                     <a href="#">Pedidos</a>
                 </li>
                 <li>
-                    <a href="#">Sobre</a>
+                    <a href="{{route('Admin.Games.index')}}">Games</a>
                 </li>
             </ul>
 

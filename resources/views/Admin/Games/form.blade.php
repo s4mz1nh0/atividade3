@@ -37,7 +37,7 @@
             </div>
 
             <div class="right-align">
-                <a class="btn-flat waves-effect" href="{{url()->previous()}}">Cancelar</a>
+                <a class="btn-flat waves-effect" href="{{route('Admin.Games.index')}}">Cancelar</a>
                 <button class="btn waves-effect waves-light" type="submit">
                     Salvar
                 </button>
