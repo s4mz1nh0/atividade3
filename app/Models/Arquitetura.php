@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Arquitetura extends Model
 {
     use HasFactory;
+    public function compatibilidade(){
+
+        return $this->hasMany(Compatibilidade::class);
+
+    }
 }

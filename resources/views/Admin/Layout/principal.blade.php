@@ -23,7 +23,7 @@
             <a href="/" class="brand-logo">DownGames</a>
             <ul class="right">
                 <li>
-                    <a href="#">Pedidos</a>
+                    <a href="{{route('Admin.Compatibilidades.index')}}">Configuração</a>
                 </li>
                 <li>
                     <a href="{{route('Admin.Games.index')}}">Games</a>
@@ -49,6 +49,11 @@
         M.toast({html:"{{session('sucesso')}}"});
 
     @endif
+
+    document.addEventListener('DOMContentLoaded', function(){
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems);
+    });
 
 </script>
 

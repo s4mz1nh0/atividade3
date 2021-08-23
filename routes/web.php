@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\GamesController;
+use App\Http\Controllers\Admin\CompatibilidadeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::prefix('Admin')->name('Admin.')->group(function(){
     Route::put('Games/{id}',  [GamesController::class, 'editar'])->name('Games.editar'); */
 
     Route::resource('Games', GamesController::class)->except(['show']);
+    Route::resource('Compatibilidades', CompatibilidadeController::class);
+
 });
 
 Route::get('/sobre', function () {

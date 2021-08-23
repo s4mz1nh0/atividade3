@@ -17,4 +17,9 @@ class Game extends Model
 
     //public $timestamps = false;
 
+    public function compatibilidade(){
+
+        return $this->hasMany(Compatibilidade::class);
+
+    }
 }

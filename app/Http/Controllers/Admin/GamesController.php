@@ -17,7 +17,7 @@ class GamesController extends Controller
     public function index()
     {
         $subtitulo = 'Lista de games';
-        $games = Game::all();
+        $games = Game::orderBy('nome', 'asc')->get();
         $sobre = 'Esse site é dedicado a manter em seu acervo os games mais marcantes já lançados';
 
         return view('Admin.Games.index', compact('subtitulo', 'games'));//
